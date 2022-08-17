@@ -3,10 +3,8 @@ body {
   background: #5D1049;
 }
 
-canvas {
-  background: rgb(229, 229, 229);
-  margin-bottom: 1rem;
-  z-index: -10;
+.canvas-wrapper{
+  padding-top: 40px;
 }
 
 .center {
@@ -17,23 +15,23 @@ canvas {
 
 .display-3{
   color: rgb(234, 205, 225);
-}
-
-.send-button-wrapper {
-      padding-left: 15px;
-      padding-top:  20px;
+  width: 100%;
+  padding-left: 50px;
+  margin-top: -18px;
+  margin-right: auto;
 }
 
 .btn {
       color: rgb(234, 205, 225);
       border-color: rgb(234, 205, 225);
       background-color: #5D1049;
-      padding: 15px 32px;
+      padding: 10px 32px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
       font-size: 20px;
       border-radius: 5px;
+      width: fit-content;
+      height:  fit-content;
   }
 
 .btn:hover {
