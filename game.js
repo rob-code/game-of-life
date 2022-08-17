@@ -1,10 +1,7 @@
  /*TODOs
  - Breaks if the canvas is not square - redo the offsets for differing width and heights
-
-  
-
+ - button should go from start -> stop (halt and keep canvas)-> reset (clear canvas) -> start
   */
-
 
   document.addEventListener("DOMContentLoaded", function(event) {
       init();
