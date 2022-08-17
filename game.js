@@ -1,3 +1,10 @@
+ /*TODOs
+ - Breaks if the canvas is not square - redo the offsets for differing width and heights
+
+  
+
+  */
+
 
   document.addEventListener("DOMContentLoaded", function(event) {
       init();
@@ -6,11 +13,14 @@
   function init() {
 
       //initialise values of the canvas and the grid spacing
-      const width = height = 1000; 
+      const width = 900; 
+      const height = 900; 
       const grid_size = 5;
-      var fillStyle_border = "#D30286";
-      var fillStyle_population = "#808080";
+      var fillStyle_border = "#4E0D31";
+      var fillStyle_population = "rgb(72, 72, 72)";
       first_run = true;
+      generation_counter = 0;
+      document.getElementById("counter").innerHTML = "gen 0";
       
       const button = document.getElementById("run-button");
       button.addEventListener('click', () => {new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button);}, false);
@@ -46,14 +56,18 @@
         draw_population(next_generation, ctx, grid_size, fillStyle_population);
         draw_population(border, ctx, grid_size, fillStyle_border);
         first_run = false;
+        generation_counter ++;
+
       }
       else{
         next_generation = create_new_generation(next_generation, width, height, grid_size); 
         draw_population(next_generation, ctx, grid_size, fillStyle_population);
         draw_population(border, ctx, grid_size, fillStyle_border);
+        generation_counter ++;
       }
 
       wait(100, button);
+      document.getElementById("counter").innerHTML = "gen " + generation_counter;
 
   }
 

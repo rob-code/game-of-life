@@ -1,15 +1,11 @@
 
 body {
-  background: #F8C0C8;
+  background: #5D1049;
 }
 
 canvas {
-  background: #f8f8f8;
-  padding: 0;
-  margin: 0 auto;
-  margin-top: 3rem;
+  background: rgb(229, 229, 229);
   margin-bottom: 1rem;
-  display: block;
   z-index: -10;
 }
 
@@ -17,6 +13,10 @@ canvas {
   display:  block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.display-3{
+  color: rgb(234, 205, 225);
 }
 
 .btn {
