@@ -79,7 +79,6 @@
               let local_cell_array = [];
               let true_count = 0;
 
-              //offsets while there are 80 x 80 cells - TODO it needs to be generalised
               local_cell_array.push([population[i-o-1][0], population[i-o-1][1], population[i-o-1][2]]);
               local_cell_array.push([population[i-o][0], population[i-o][1], population[i-o][2]]);
               local_cell_array.push([population[i-o+1][0], population[i-o+1][1], population[i-o+1][2]]);
