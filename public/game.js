@@ -3,12 +3,13 @@
  - button should go from start -> stop (halt and keep canvas)-> reset (clear canvas) -> start
   */
 
+
   document.addEventListener("DOMContentLoaded", function(event) {
+
       init();
   });
 
   function init() {
-
       //initialise values of the canvas and the grid spacing
       const width = 900; 
       const height = 900; 
@@ -65,7 +66,11 @@
 
       wait(100, button);
       document.getElementById("counter").innerHTML = "gen " + generation_counter;
+      button.innerHTML = "stop";
 
+      //button.removeEventListener('click', new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button), false);
+
+      //button.addEventListener(('click'), stop_generation, false);
   }
 
   function wait(ms, button) {
@@ -73,7 +78,12 @@
       };
 
 
+  function stop_generation () {
+      console.log('stop pressed')
+            //const button = document.getElementById("run-button");
+      //console.log(button.getEventListener());
 
+  }
 //______________________________________________
 
 

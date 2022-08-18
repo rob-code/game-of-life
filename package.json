@@ -1,0 +1,22 @@
+{
+  "name": "game_of_life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rob-code/game-of-life.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rob-code/game-of-life/issues"
+  },
+  "homepage": "https://github.com/rob-code/game-of-life#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
