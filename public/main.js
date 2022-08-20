@@ -1,24 +1,19 @@
- /*TODOs
- - Breaks if the canvas is not square - redo the offsets for differing width and heights
- - button should go from start -> stop (halt and keep canvas)-> reset (clear canvas) -> start
-  */
-
-
+ 
   document.addEventListener("DOMContentLoaded", function(event) {
-
       init();
   });
 
   function init() {
       //initialise values of the canvas and the grid spacing
-      const width = 900; 
-      const height = 900; 
+
+      const width = 800; 
+      const height = 800; 
       const grid_size = 5;
       var fillStyle_border = "#4E0D31";
       var fillStyle_population = "rgb(72, 72, 72)";
       first_run = true;
       generation_counter = 0;
-      document.getElementById("counter").innerHTML = "gen 0";
+      document.getElementById("counter").innerHTML = "generation 0";
       
       const button = document.getElementById("run-button");
       button.addEventListener('click', () => {new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button);}, false);
@@ -33,10 +28,16 @@
       //draw the grid
       draw_grid(ctx, width, height, grid_size);
 
-      let random_population = random_population_array(width, height, grid_size);
-      let border = create_border_array(width, height, grid_size);
+
+
+      //let random_population = random_population_array(width, height, grid_size);
+      //let random_population = line_population_array(width, height, grid_size);
+      let random_population = box_population_array(width, height, grid_size);
+
 
       draw_population(random_population, ctx, grid_size, fillStyle_population);
+      let border = create_border_array(width, height, grid_size);
+
       draw_population(border, ctx, grid_size, fillStyle_border);
 
 
@@ -64,8 +65,8 @@
         generation_counter ++;
       }
 
-      wait(100, button);
-      document.getElementById("counter").innerHTML = "gen " + generation_counter;
+      wait(50, button);
+      document.getElementById("counter").innerHTML = "generation " + generation_counter;
       button.innerHTML = "stop";
 
       //button.removeEventListener('click', new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button), false);
@@ -230,6 +231,79 @@
 
 
 
+  function line_population_array(width, height, grid_size) {
+
+  let population = [];
+
+      // make blank array
+  for (let x = 0; x < width; x += grid_size) {
+    for (let y = 0; y < height; y += grid_size) {
+      population.push([x,y,false]);    
+    };
+  };
+
+
+  //for (let i = 3220; i < 3230; i += 1) {
+  //    population[i][2] = true;    
+  //};
+
+  for (let i = 3380; i < 3450; i += 1) {
+      population[i][2] = true;    
+  };
+
+
+  for (let i = 3440; i < 3480; i += 2) {
+      population[i][2] = true;    
+  };
+
+
+  console.table(population);
+
+  return population;
+
+
+  }
+
+
+function box_population_array(width, height, grid_size) {
+
+  let population = [];
+
+      // make blank array
+  for (let x = 0; x < width; x += grid_size) {
+    for (let y = 0; y < height; y += grid_size) {
+      population.push([x,y,false]);    
+    };
+  };
+
+
+  for (let i = 5220; i < 5230; i += 1) {
+      population[i][2] = true;    
+  };
+
+  
+  for (let i = 5380; i < 5390; i += 3) {
+      population[i][2] = true;    
+  };
+
+/*
+  for (let i = 5440; i < 5480; i += 3) {
+      population[i][2] = true;    
+  };
+*/
+  
+  for (let i = 5539; i < 5540; i += 2) {
+      population[i][2] = true;    
+  };
+
+
+  console.table(population);
+
+  return population;
+
+
+  }
+
 
 //______________________________________________
 
@@ -271,4 +345,7 @@
     ctx.stroke();  
   };
 }; //draw-grid()
+
+
+
 
