@@ -15,10 +15,10 @@ body {
 .controllers{
   flex: none;
   flex-wrap: nowrap;
-  padding-left: 14px;
+  padding-left: 16px;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 900px;
+  width: 525px;
   margin-right: 0px;
   vertical-align: middle;
 }
@@ -26,9 +26,15 @@ body {
 .display-3{
   color: rgb(234, 205, 225);
   width: 100%;
-  padding-left: 50px;
+  padding-left: 20px;
   margin-top: -18px;
   margin-right: auto;
+}
+
+.note{
+    color: rgb(234, 205, 225);
+    padding-left: 16px;
+
 }
 
 .btn {
@@ -62,3 +68,4 @@ body {
       box-shadow: 0 0px ;
       transform: translateY(0px);
 }  
+

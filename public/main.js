@@ -5,7 +5,7 @@
 
   function init() {
       //initialise values of the canvas and the grid spacing
-
+      antibiotics = false;
       const width = 800; 
       const height = 800; 
       const grid_size = 5;
@@ -15,8 +15,12 @@
       generation_counter = 0;
       document.getElementById("counter").innerHTML = "generation 0";
       
-      const button = document.getElementById("run-button");
-      button.addEventListener('click', () => {new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button);}, false);
+      const run_button = document.getElementById("run-button");
+      run_button.addEventListener('click', () => {new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, run_button);}, false);
+
+      const antibiotics_button = document.getElementById("antibiotics-button"); 
+      antibiotics_button.addEventListener('click', () => {toggle_antibiotics();}, false);
+
 
       var canvas = document.createElement('canvas');
       canvas.width = width;
@@ -48,7 +52,7 @@
   }; //init()
 
 
-  function new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button){
+  function new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, run_button){
 
       if (first_run) {
         next_generation = create_new_generation(random_population, width, height, grid_size);
@@ -65,24 +69,43 @@
         generation_counter ++;
       }
 
-      wait(50, button);
+      wait(50, run_button);
       document.getElementById("counter").innerHTML = "generation " + generation_counter;
-      button.innerHTML = "stop";
 
-      //button.removeEventListener('click', new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, button), false);
 
-      //button.addEventListener(('click'), stop_generation, false);
+
+
+      //run_button.removeEventListener('click', new_generation(random_population, border, ctx, width, height, grid_size, fillStyle_population, fillStyle_border, run_button), false);
+
+      //run_button.addEventListener(('click'), stop_generation, false);
   }
 
-  function wait(ms, button) {
-          setTimeout(() => { button.click() }, ms);
+  function wait(ms, run_button) {
+          setTimeout(() => { run_button.click() }, ms);
       };
+
+  function toggle_antibiotics() {
+          antibiotics = !antibiotics;
+
+          console.log('add_antibiotics button pressed! antibiotics is: ' + antibiotics);
+
+          if (antibiotics){
+              window.document.getElementById("antibiotics-button").innerHTML = "antibiotics -";
+          }
+          else
+          {
+              window.document.getElementById("antibiotics-button").innerHTML = "antibiotics +";
+          }
+
+
+
+  }
 
 
   function stop_generation () {
       console.log('stop pressed')
-            //const button = document.getElementById("run-button");
-      //console.log(button.getEventListener());
+            //const run_button = document.getElementById("run-button");
+      //console.log(run_button.getEventListener());
 
   }
 //______________________________________________
@@ -136,11 +159,14 @@
                 break;
                 
                 case 2: 
-                  //nothing needs to be done to the cell in this option
+                  //nothing needs to be done to the cell in this option ** unless antibiotics are added!
+                  //if (antibiotics) {population[i][2] = false};
                 break;
                 
                 case 3:
-                  population[i][2] = true;
+                  //stops new births
+                  if (!antibiotics) {population[i][2] = true};
+
                 break;
                 
                 case 4:
@@ -297,7 +323,7 @@ function box_population_array(width, height, grid_size) {
   };
 
 
-  console.table(population);
+  //console.table(population);
 
   return population;
 
