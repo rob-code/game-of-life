@@ -302,7 +302,7 @@ function box_population_array(width, height, grid_size) {
     };
   };
 
-      var j = 7010;
+      var j = 7010; // offset to more easily position the seed
 
   for (let i = 5220 + j; i < 5230 + j; i += 1) {
       population[i][2] = true;    
