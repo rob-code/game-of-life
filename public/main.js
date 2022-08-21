@@ -302,13 +302,14 @@ function box_population_array(width, height, grid_size) {
     };
   };
 
+      var j = 7010;
 
-  for (let i = 5220; i < 5230; i += 1) {
+  for (let i = 5220 + j; i < 5230 + j; i += 1) {
       population[i][2] = true;    
   };
 
   
-  for (let i = 5380; i < 5390; i += 3) {
+  for (let i = 5380 + j; i < 5390 + j; i += 3) {
       population[i][2] = true;    
   };
 
@@ -318,7 +319,7 @@ function box_population_array(width, height, grid_size) {
   };
 */
   
-  for (let i = 5539; i < 5540; i += 2) {
+  for (let i = 5539 + j; i < 5540 + j; i += 2) {
       population[i][2] = true;    
   };
 
